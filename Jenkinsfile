@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
+
         stage('Clone') {
             steps {
-                git url: 'https://github.com/Prahas0728/jenkins-simple-demo.git',
-                    branch: 'main'
+                git url: 'https://github.com/hiteshponnappa17/jenkins-simple-demo.git', branch: 'main'
             }
         }
 
@@ -15,5 +15,12 @@ pipeline {
                 sh './script.sh'
             }
         }
+
+        stage('Run Python File') {
+            steps {
+                sh 'python3 addition.py'
+            }
+        }
+
     }
 }
